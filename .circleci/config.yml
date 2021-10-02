@@ -29,6 +29,7 @@ jobs:
   test:
     docker:
       - image: 'cimg/node:13.12-browser'
+    executor:  browser-tools/default
     steps:
       - browser-tools/install-browser-tools
       - run:
