@@ -1,5 +1,8 @@
 version: 2.1
 
+orbs:
+  browser-tools: circleci/browser-tools@1.2.2
+
 jobs:
   build:
     docker:
@@ -24,8 +27,8 @@ jobs:
             - ~/.cache ## cache both yarn and Cypress!
 
   test:
-    docker:
-      - image: 'cimg/node:13.12-browser'
+    executor:
+      name: browser-tools/default
     steps:
       - browser-tools/install-browser-tools
       - run:
