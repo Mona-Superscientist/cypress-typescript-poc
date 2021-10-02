@@ -6,3 +6,6 @@ workflows:
     jobs:
       - cypress/run:
           yarn: true
+          executor: cypress/base-14
+          record: true
+          store_artifacts: true
