@@ -36,13 +36,13 @@ jobs:
       - browser-tools/install-browser-tools
       - run:
           name: 'Run tests on chrome'
-          command: $(yarn bin)/cypress run --browser chrome
+          command: ./node_modules/cypress/bin/cypress run --browser chrome
       - run:
           name: 'Run tests on firefox'
-          command: $(yarn bin)/cypress run --browser firefox
+          command: $(yarn run)/cypress run --browser firefox
       - run:
           name: 'Run tests on edge'
-          command: $(yarn bin)/cypress run --browser edge
+          command: $(yarn run)/cypress run --browser edge
 
 workflows:
   version: 2
