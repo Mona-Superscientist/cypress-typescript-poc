@@ -38,3 +38,12 @@ jobs:
       - run:
           name: 'Run tests on edge'
           command: $(yarn bin)/cypress run --browser edge
+
+workflows:
+  version: 2
+  Running tests:
+    jobs:
+      - build
+      - tests:
+          requires:
+            - build
