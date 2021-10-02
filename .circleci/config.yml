@@ -21,4 +21,12 @@ jobs:
           key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - ~/.cache ## cache both yarn and Cypress!
-      - run: $(yarn bin)/cypress run --record --key <record_key>
+      - run:
+          name: 'Run tests on chrome'
+          command: $(yarn bin)/cypress run --browser chrome
+      - run:
+          name: 'Run tests on firefox'
+          command: $(yarn bin)/cypress run --browser firefox
+      - run:
+          name: 'Run tests on edge'
+          command: $(yarn bin)/cypress run --browser edge
