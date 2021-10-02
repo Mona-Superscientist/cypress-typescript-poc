@@ -44,6 +44,6 @@ workflows:
   Running tests:
     jobs:
       - build
-      - tests:
+      - test:
           requires:
             - build
