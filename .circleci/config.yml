@@ -51,4 +51,4 @@ workflows:
       - build
       - test:
           requires:
-            - builds
+            - build
