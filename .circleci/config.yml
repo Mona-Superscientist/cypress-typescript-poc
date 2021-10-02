@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: cypress/base:14.16.0
+      - image: cypress/browsers:chrome69
         environment:
           ## this enables colors in the output
           TERM: xterm
