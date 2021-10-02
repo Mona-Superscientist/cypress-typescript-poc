@@ -1,0 +1,9 @@
+{
+    "projectId": "Cypress POC",
+    "baseURL": "https://saucedemo.com",
+    "integrationFolder": "cypress/e2e",
+    "screenshotsFolder": "results/assets/screenshots",
+    "videosFolder": "results/assets/videos",
+    "viewportWidth": 1920,
+    "viewportHeight": 1080
+}

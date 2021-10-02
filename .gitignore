@@ -1,18 +1,10 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# Dependency directories
+node_modules/
 
-# Other files and folders
-.settings/
+# Coverage directory used by tools like istanbul
+coverage
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# Yarn Integrity file
+.yarn-integrity
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+.vscode/

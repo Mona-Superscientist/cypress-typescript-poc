@@ -1,0 +1,21 @@
+{
+  "name": "mona",
+  "version": "1.0.0",
+  "description": "cypress-typescript-poc",
+  "main": "n",
+  "repository": "y",
+  "author": "y",
+  "license": "MIT",
+  "scripts": {
+    "test:chrome": "./node_modules/cypress/bin/cypress run --browser chrome --headed",
+    "test:edge": "./node_modules/cypress/bin/cypress run --browser edge --headed",
+    "test:firefox": "./node_modules/cypress/bin/cypress run --browser firefox --headed",
+    "test:chrome-headless": "./node_modules/cypress/bin/cypress run --browser chrome",
+    "test:edge-headless": "./node_modules/cypress/bin/cypress run --browser edge",
+    "test:firefox-headless": "./node_modules/cypress/bin/cypress run --browser firefox"
+  },
+  "devDependencies": {
+    "cypress": "^8.5.0",
+    "typescript": "^4.4.3"
+  }
+}
