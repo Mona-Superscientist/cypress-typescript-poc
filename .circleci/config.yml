@@ -28,6 +28,3 @@ jobs:
       - run:
           name: 'Run tests on firefox'
           command: $(yarn bin)/cypress run --browser firefox
-      - run:
-          name: 'Run tests on edge'
-          command: $(yarn bin)/cypress run --browser edge
