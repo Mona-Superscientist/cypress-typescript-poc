@@ -7,10 +7,6 @@ jobs:
   build:
     docker:
       - image: cypress/base:14.16.0
-      - image: 'cimg/node:15.0.1-browsers'
-        auth:
-          username: $DOCKERHUB_USERNAME
-          password: $DOCKERHUB_PASSWORD
         environment:
           ## this enables colors in the output
           TERM: xterm
@@ -29,6 +25,14 @@ jobs:
           key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - ~/.cache ## cache both yarn and Cypress!
+
+  test:
+    docker:
+      - image: 'cimg/node:15.0.1-browsers'
+        auth:
+          username: $DOCKERHUB_USERNAME
+          password: $DOCKERHUB_PASSWORD
+    steps:
       - browser-tools/install-browser-tools
       - run:
           name: 'Run tests on chrome'
@@ -39,3 +43,12 @@ jobs:
       - run:
           name: 'Run tests on edge'
           command: $(yarn bin)/cypress run --browser edge
+
+workflows:
+  version: 2
+  Running tests:
+    jobs:
+      - build
+      - test:
+          requires:
+            - builds
