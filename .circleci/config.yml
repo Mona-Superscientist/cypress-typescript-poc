@@ -20,11 +20,12 @@ jobs:
             - v1-deps
       - run:
           name: Install Dependencies
-          command: yarn install --interactive
+          command: yarn install
       - save_cache:
           key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
           paths:
             - ~/.cache ## cache both yarn and Cypress!
+      - run: $(yarn bin)/cypress run
 
   test:
     docker:
@@ -36,13 +37,13 @@ jobs:
       - browser-tools/install-browser-tools
       - run:
           name: 'Run tests on chrome'
-          command: ./node_modules/cypress/bin/cypress run --browser chrome
+          command: $(yarn bin)/cypress run --browser chrome
       - run:
           name: 'Run tests on firefox'
-          command: $(yarn run)/cypress run --browser firefox
+          command: $(yarn bin)/cypress run --browser firefox
       - run:
           name: 'Run tests on edge'
-          command: $(yarn run)/cypress run --browser edge
+          command: $(yarn bin)/cypress run --browser edge
 
 workflows:
   version: 2
