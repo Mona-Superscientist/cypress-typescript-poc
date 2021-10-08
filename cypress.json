@@ -1,6 +1,6 @@
 {
     "projectId": "Cypress POC",
-    "baseURL": "https://saucedemo.com",
+    "baseUrl": "https://saucedemo.com",
     "integrationFolder": "cypress/e2e",
     "screenshotsFolder": "results/assets/screenshots",
     "videosFolder": "results/assets/videos",

@@ -7,7 +7,7 @@
   "author": "y",
   "license": "MIT",
   "scripts": {
-    "test:chrome": "./node_modules/cypress/bin/cypress run --browser chrome --headed",
+    "test:chrome": "./node_modules/cypress/bin/cypress run --browser chrome --headed --no-exit",
     "test:edge": "./node_modules/cypress/bin/cypress run --browser edge --headed",
     "test:firefox": "./node_modules/cypress/bin/cypress run --browser firefox --headed",
     "test:chrome-headless": "./node_modules/cypress/bin/cypress run --browser chrome",

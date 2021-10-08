@@ -3,10 +3,11 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: cypress/browsers:node12.18.3-chrome89-ff86
+      - image: cypress/browsers:node14.17.0-chrome91-ff89
         environment:
           ## this enables colors in the output
           TERM: xterm
+      - image: cypress/browsers:node14.10.1-edge88
     working_directory: ~/app
     steps:
       - checkout
@@ -28,3 +29,6 @@ jobs:
       - run:
           name: 'Run tests on firefox'
           command: $(yarn bin)/cypress run --browser firefox
+      - run:
+          name: 'Run tests on edge'
+          command: $(yarn bin)/cypress run --browser edge

@@ -1,44 +1,32 @@
-const elements = {
-    usernameInput: () => {
-        return cy.get('[data-test = username]')
-    },
+class Login {
+    url = '/';
+    elements = {
+        getUserInput: () => cy.get('[data-test = username]').should('be.visible'),
+        getPasswordInput: () => cy.get('[data-test = password]').should('be.visible'),
+        getLoginBtn: () => cy.get('[data-test = login-button]').should('be.visible'),
+    };
 
-    passwordInput: () => {
-        return cy.get('[data-test = password]').should('be.visible')
-    },
-
-    loginBtn: () => {
-        return cy.get('[data-test = login-button]').should('be.visible')
-    }
-};
-
-const navigate = () => {
-    cy.visit('https://www.saucedemo.com/');
-}
-
-const setUsername = (username: string) => {
-    elements.usernameInput().type(username);
+    navigate() {
+        cy.visit(this.url);
     }
 
-const setPassword = (password: string) => {
-    elements.passwordInput().type(password);
+    setUsername(username: string) {
+        this.elements.getUserInput().type(username);
+    }
+
+    setPassword(password: string) {
+        this.elements.getPasswordInput().type(password);
+    }
+
+    clickLoginBtn() {
+        this.elements.getLoginBtn().click();
+    }
+
+    login(username: string, password: string) {
+        this.setUsername(username);
+        this.setPassword(password);
+        this.clickLoginBtn();
+    }
 }
 
-const clickLogin = () => {
-    elements.loginBtn().click();
-}
-
-const login = (username: string, password: string) => {
-    navigate();
-    setUsername(username);
-    setPassword(password);
-    clickLogin();
-}
-
-export = {
-    navigate,
-    setUsername,
-    setPassword,
-    clickLogin,
-    login,
-}
+export const LoginPage = new Login();
